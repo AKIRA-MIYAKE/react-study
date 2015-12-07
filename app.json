@@ -1,0 +1,9 @@
+{
+  "name": "Nodeyard",
+  "description": "Development foundation of Node.js application",
+  "env": {
+    "NODE_ENV": {
+      "value": "production"
+    }
+  }
+}
