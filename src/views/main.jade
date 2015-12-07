@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  div#app!= markup
+  script.
+    window.__INITIAL_STATE__ = !{initialState};
+  script(src="/javascripts/bundle.js")

@@ -1,13 +1,19 @@
-import greeting from '../../common/greeting';
+import React from 'react';
+import { render } from 'react-dom';
+import { Router } from 'react-router';
+import { createHistory } from 'history';
+import { Provider } from 'react-redux';
 
-document.addEventListener('DOMContentLoaded', () => {
-  var greetingElement = document.getElementById('greeting');
-  var greetingTextNode = document.createTextNode(greeting('Nodeyard'));
-  greetingElement.appendChild(greetingTextNode);
+import routes from '../../client/routes';
+import configureStore from '../../client/store/configure-store';
 
-  var initialData = JSON
-    .parse(document.getElementById('initial-data').getAttribute('data-json'));
-  var fizzElement = document.getElementById('fizz');
-  var fizzTextNode = document.createTextNode(initialData.fizz);
-  fizzElement.appendChild(fizzTextNode);
-});
+
+const initialState = window.__INITIAL_STATE__;
+const store = configureStore(initialState);
+
+render(
+  <Provider store={store}>
+    <Router history={createHistory()} routes={routes} />
+  </Provider>,
+  document.getElementById('app')
+);
