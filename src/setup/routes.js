@@ -1,13 +1,10 @@
-import home from '../controllers/render/home';
-
-import greet from '../controllers/api/greet';
+import main from '../controllers/main';
 
 
 export default function setup(app, passport, authorization) {
 
-  app.use('/', home);
-
   // API controllers is placed under "/api"
-  app.use('/api/greet', greet);
+
+  app.use('*', main);
 
 }
